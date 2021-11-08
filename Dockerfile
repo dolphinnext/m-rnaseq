@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-LABEL author="onur.yukselen@umassmed.edu"  description="Docker image containing all requirements for the dolphinnext/rnaseq pipeline"
+LABEL author="onur.yukselen@umassmed.edu"  description="Docker image containing all requirements for the dolphinnext/m-rnaseq pipeline"
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
@@ -39,7 +39,7 @@ RUN conda env create -f /environment.yml && conda clean -a
 # Install dolphin-tools
 RUN git clone https://github.com/dolphinnext/tools /usr/local/bin/dolphin-tools
 RUN mkdir -p /project /nl /mnt /share
-ENV PATH /opt/conda/envs/dolphinnext-rnaseq-3.0/bin:/usr/local/bin/dolphin-tools/:$PATH
+ENV PATH /opt/conda/envs/dolphinnext-m-rnaseq-1.0/bin:/usr/local/bin/dolphin-tools/:$PATH
 
 RUN pip install "multiqc==1.7"
 RUN pip install wheel
